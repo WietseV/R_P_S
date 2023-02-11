@@ -1,50 +1,22 @@
 'use client'
 
-import { useState } from "react"
+import { useState } from 'react'
 import { FaToiletPaper } from 'react-icons/fa'
 import { GiStoneBlock, GiWolverineClaws} from 'react-icons/gi'
-import ResultPop from "../resultPop"
-import {play, resetGame, Game} from "../gameHandler"
-import  useSWR from "swr"
-
-const fetcher = (url: string) => fetch(url).then(res => res.json())
-
-function getGame(){
-    const { data, error, isLoading, mutate} = useSWR<Game>('/api/game', fetcher, {refreshInterval: 500})
-
-    return {
-        game: data,
-        isLoading,
-        isError: error,
-        mutate: mutate,
-    }
-}
+import { play } from "../gameHandler"
+import ResultPop from '../resultPop'
 
 function Rps() {
 
-    const { game, isLoading, isError, mutate } = getGame()
-    const [showResult, setShowResult] = useState(false)
+    const [result, setResult] = useState(false)
 
-    function reset(){
-        resetGame()
-        setShowResult(false)
-        
+    function handleClickResult(){
+        setResult(false)
     }
 
     function handleClick(choice: string){
         play(choice)
-        setShowResult(true)
-        mutate()
-    }
-
-    if (isError) return <div>Failed to load</div>
-
-    if(isLoading){
-        return (
-            <div className="max-w-5xl min-h-screen mx-auto flex flex-col justify-center items-center">
-                <h1 className="text-black text-opacity-30 text-6xl font-bold">Loading...</h1>
-            </div>
-        )
+        setResult(true)
     }
 
     return (
@@ -79,10 +51,8 @@ function Rps() {
                     </div>
                 </button>
             </div>
-            
         </div>
-        {/* Result pop up screen */}
-        {/* {ResultPop(game as Game, showResult, reset, isLoading)} */}
+      <ResultPop show={result} setShow={handleClickResult} />
       </div>
     )
   }

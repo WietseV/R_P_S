@@ -11,6 +11,10 @@
     @apply p-16 border-transparent w-36 h-36 md:w-48 md:h-48 rounded-full bg-slate-200 flex justify-center items-center shadow-2xl shadow-black
 }
 
+.resultloading {
+    @apply p-16 border-transparent w-36 h-36 md:w-48 md:h-48 rounded-full bg-stone-500 flex justify-center items-center shadow-2xl shadow-transparent
+}
+
 .gradient {
     @apply bg-gradient-to-b from-[#C04CFD] to-pink-300
 }

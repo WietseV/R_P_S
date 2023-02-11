@@ -24,7 +24,7 @@ module.exports = {
         'silver': 'radial-gradient(ellipse farthest-corner at right bottom, #BEC0C2 0%, #B3B6B5 8%, #7D7D7A 30%, #70706F 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #e5e6e7 8%, #BEC0C2 25%, #B3B6B5 62.5%, #A1A2A3 100%)',
         'split': 'radial-gradient(ellipse farthest-corner at right top, #FFF689 0%, #FFF689 70%, #CFFFB0 70%, #CFFFB0 100%)',
         'bggradient': 'radial-gradient(circle farthest-corner at center, #FFFFFF 0%, #fdba74 50%,  #FF8552 100%)',
-        'spin': 'radial-gradient(circle farthest-corner at center, #ffffff00 0%, #ffffff00 33%, #00000050 33%, #00000050 66%, #ffffff00 66%, #ffffff00 100%)'
+        'spin': ' linear-gradient(#00000050 0%, #00000050 33%, #ffffff00 33%, #ffffff00 66%, #00000050 66%, #00000050 100%) '
       }
     },
   },

@@ -11,7 +11,6 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     <div>
       <GameSelectBar />
       <GameInfoBar />
-      <ResultPop />
       {children}
     </div>
   )
