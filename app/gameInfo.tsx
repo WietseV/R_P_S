@@ -1,5 +1,3 @@
-'use client'
-
 import { Game } from "./gameHandler";
 
 export default function GameInfo(game: Game){
