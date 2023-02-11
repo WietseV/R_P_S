@@ -1,8 +1,6 @@
-import Rps from './rsp'
+import Rps from './rps'
 
 export default function RpsPage() {
-
-
     return (
     <div>
         <Rps />
