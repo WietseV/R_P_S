@@ -12,6 +12,7 @@ export default function Rps() {
     const [game, setGame] = useState<Game>()
     const [loading, setLoading] = useState(false)
     const [showInfo, setShowInfo] = useState(false)
+    const [showResult, setShowResult] = useState(false)
 
     function getData(){
         setLoading(true)
@@ -20,18 +21,20 @@ export default function Rps() {
             .then((data) => {
                 setGame(data)
                 setLoading(false)
+                console.log('data fetched')
             })
     }
 
     function reset(){
         resetGame()
         getData()
-        console.log(game)
+        setShowResult(false)
     }
 
     function handleClick(choice: string){
         play(choice)
         getData()
+        setShowResult(true)
     }
 
     function handleClickInfo(){
@@ -109,7 +112,7 @@ export default function Rps() {
             
         </div>
         {/* Result pop up screen */}
-        {ResultPop(game as Game, reset)}
+        {ResultPop(game as Game, showResult, reset)}
         {/* Info bar on the right */}
         <div className="hidden px-8 w-1/5 h-full top-0 right-0 fixed bg-black bg-opacity-40 xl:flex justify-center items-center z-10">
           {(!game || loading) && <div>Loading...</div>}
