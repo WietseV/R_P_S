@@ -6,65 +6,88 @@ import { GiStoneBlock, GiWolverineClaws} from 'react-icons/gi'
 import ResultPop from "../resultPop"
 import {play, resetGame, Game, setType} from "../gameHandler"
 import GameInfo from "../gameInfo"
+import  useSWR from "swr"
+import { mutate } from "swr/_internal"
+
+const fetcher = (url: string) => fetch(url).then(res => res.json())
+
+export function getGame(){
+    const { data, error, isLoading, mutate} = useSWR<Game>('/api/game', fetcher, {refreshInterval: 500})
+
+    return {
+        game: data,
+        isLoading,
+        isError: error,
+        mutate: mutate,
+    }
+}
 
 export default function Rps() {
-    const [game, setGame] = useState<Game>()
+
+    const { game, isLoading, isError, mutate } = getGame()
+
+
+    // const [game, setGame] = useState<Game>()
     const [loading, setLoading] = useState(false)
     const [showInfo, setShowInfo] = useState(false)
     const [showResult, setShowResult] = useState(false)
 
-    function getData(){
-        setLoading(true)
-        fetch('/api/game')
-            .then((res) => res.json())
-            .then((data) => {
-                setGame(data)
-                setLoading(false)
-            })
-    }
+    // function getData(){
+    //     setLoading(true)
+    //     fetch('/api/game')
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             // setGame(data)
+    //             setLoading(false)
+    //         })
+    // }
 
     function reset(){
         resetGame()
-        setLoading(true)
-        fetch('/api/game')
-            .then((res) => res.json())
-            .then((data) => {
-                setGame(data)
+        // setLoading(true)
+        // fetch('/api/game')
+        //     .then((res) => res.json())
+        //     .then((data) => {
+        //         // setGame(data)
                 setShowResult(false)
-                setLoading(false)
-            })
+        //         setLoading(false)
+        //     })
         
     }
 
     function handleClick(choice: string){
-        setLoading(true)
-        fetch('/api/game', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({play: true, choice: choice})
-            }).then(() => fetch('/api/game')
-            .then((res) => res.json())
-            .then((data) => {
-                setGame(data)
-                getData()
-                setLoading(false)
+        // setLoading(true)
+        play(choice)
+        mutate()
+        // fetch('/api/game', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({play: true, choice: choice})
+        //     }).then(() => fetch('/api/game')
+        //     .then((res) => res.json())
+        //     .then((data) => {
+        //         // setGame(data)
+        //         getData()
+        //         setLoading(false)
                 setShowResult(true)
-            }))
+        //     }))
     }
 
     function handleClickInfo(){
         setShowInfo(!showInfo)
-        getData()
+        // getData()
     }
 
-    useEffect(() => {
-        getData()
-        setType("rps")
-    }, [])
+    // useEffect(() => {
+    //     getData()
+    //     setType("rps")
+    // }, [])
 
-    if(loading || !game){
+    if (isError) return <div>Failed to load</div>
+
+    if(isLoading){
         return (
             <div className="max-w-5xl min-h-screen mx-auto flex flex-col justify-center items-center">
                 <h1 className="text-black text-opacity-30 text-6xl font-bold">Loading...</h1>

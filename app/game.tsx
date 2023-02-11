@@ -16,7 +16,7 @@ class Game{
     public type
 
     private constructor() {
-        this.type = ""
+        this.type = "rps"
         this.result = ""
         this.choice = ""
         this.compChoice = ""

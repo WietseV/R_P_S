@@ -12,7 +12,6 @@ export async function getData(){
         console.log("error, couldnt fetch game data", error)
         return error
     }
-    return null
 }
 
 export async function play(choice: string) {

@@ -2,8 +2,22 @@
 import { FaToiletPaper } from 'react-icons/fa'
 import { GiStoneBlock, GiWolverineClaws, GiTRexSkull, GiSpockHand } from 'react-icons/gi'
 import { Game } from './gameHandler'
+import  useSWR from "swr"
+import { getGame } from './rps/page'
+
+const fetcher = (url: string) => fetch(url).then(res => res.json())
 
 export default function ResultPop(game: Game, showResult: Boolean, handleClick: Function){
+
+    // const { data: game } = useSWR<Game>('/api/game', fetcher);
+
+    // if (!game ) return null;
+
+    // const { game, isLoading, isError } = getGame()
+
+    // if(isLoading) return <div>Loading...</div>
+    // if(isError || !game) return <div>Failed to load</div>
+
     return (
         <div className={(!showResult) ? "hidden" : "w-screen h-screen top-0 left-0 fixed bg-black bg-opacity-40 flex flex-col justify-center items-center z-10"}>
             <div className={`max-w-6xl rounded-xl p-8 md:px-16 flex flex-col justify-items-center gap-8 border-2 border-black border-opacity-80 ${game.result==="YOU WIN" ? "bg-gold" : "bg-silver"}`}>
