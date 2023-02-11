@@ -2,25 +2,34 @@
 
 import { FaToiletPaper } from 'react-icons/fa'
 import { GiStoneBlock, GiWolverineClaws, GiTRexSkull, GiSpockHand } from 'react-icons/gi'
-import { Game } from './gameHandler'
+import { useState } from 'react'
+import { Game, resetGame } from './gameHandler'
 import  useSWR from "swr"
 // import { getGame } from './rps/page'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
-function ResultPop(game: Game, showResult: Boolean, handleClick: Function, isLoading: Boolean){
+function ResultPop(){
 
-    // const { data: game, isLoading } = useSWR<Game>('/api/game', fetcher);
+    const { data: game, isLoading, error, mutate } = useSWR<Game>('/api/game', fetcher);
+    const [showResult, setShowResult] = useState(false)
+
+    function handleClick(){
+        resetGame()
+        setShowResult(false)
+        mutate()
+        
+    }
 
     // if (!game ) return null;
 
     // const { game, isLoading, isError } = getGame()
 
-    // if(isLoading) return <div>Loading...</div>
-    // if(isError || !game) return <div>Failed to load</div>
+    if(isLoading) return <div>Loading...</div>
+    if(error || !game) return <div>Failed to load</div>
 
     return (
-        <div className={(!showResult) ? "hidden" : "w-screen h-screen top-0 left-0 fixed bg-black bg-opacity-40 flex flex-col justify-center items-center z-10"}>
+        <div className={(game.result === "") ? "hidden" : "w-screen h-screen top-0 left-0 fixed bg-black bg-opacity-40 flex flex-col justify-center items-center z-10"}>
             <div className={`max-w-6xl rounded-xl p-8 md:px-16 flex flex-col justify-items-center gap-8 border-2 border-black border-opacity-80 ${game.result==="YOU WIN" ? "bg-gold" : "bg-silver"}`}>
                 {isLoading && <h1>Loading...</h1>}
                 {!isLoading &&<div className=" flex flex-col md:flex-row justify-center items-center ">

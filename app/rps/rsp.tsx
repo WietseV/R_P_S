@@ -5,7 +5,6 @@ import { FaToiletPaper } from 'react-icons/fa'
 import { GiStoneBlock, GiWolverineClaws} from 'react-icons/gi'
 import ResultPop from "../resultPop"
 import {play, resetGame, Game} from "../gameHandler"
-import GameInfoBar from "./gameInfoBar"
 import  useSWR from "swr"
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
@@ -24,60 +23,19 @@ function getGame(){
 function Rps() {
 
     const { game, isLoading, isError, mutate } = getGame()
-
-
-    // const [game, setGame] = useState<Game>()
-    // const [loading, setLoading] = useState(false)
     const [showResult, setShowResult] = useState(false)
-
-    // function getData(){
-    //     setLoading(true)
-    //     fetch('/api/game')
-    //         .then((res) => res.json())
-    //         .then((data) => {
-    //             // setGame(data)
-    //             setLoading(false)
-    //         })
-    // }
 
     function reset(){
         resetGame()
-        // setLoading(true)
-        // fetch('/api/game')
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //         // setGame(data)
-                setShowResult(false)
-        //         setLoading(false)
-        //     })
+        setShowResult(false)
         
     }
 
     function handleClick(choice: string){
-        // setLoading(true)
         play(choice)
-        // mutate()
-        // fetch('/api/game', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({play: true, choice: choice})
-        //     }).then(() => fetch('/api/game')
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //         // setGame(data)
-        //         getData()
-        //         setLoading(false)
-                setShowResult(true)
-                mutate()
-        //     }))
+        setShowResult(true)
+        mutate()
     }
-
-    // useEffect(() => {
-    //     getData()
-    //     setType("rps")
-    // }, [])
 
     if (isError) return <div>Failed to load</div>
 
@@ -85,10 +43,6 @@ function Rps() {
         return (
             <div className="max-w-5xl min-h-screen mx-auto flex flex-col justify-center items-center">
                 <h1 className="text-black text-opacity-30 text-6xl font-bold">Loading...</h1>
-                {/* Info bar on the right */}
-                {/* <div className="hidden px-8 w-1/5 h-full top-0 right-0 fixed bg-black bg-opacity-40 xl:flex justify-center items-center z-10">
-                    <div>Loading...</div>
-                </div> */}
             </div>
         )
     }
@@ -128,9 +82,7 @@ function Rps() {
             
         </div>
         {/* Result pop up screen */}
-        {ResultPop(game as Game, showResult, reset, isLoading)}
-        {/* Info bar on the right */}
-        {/* <GameInfoBar game={game as Game} isLoading={isLoading} /> */}
+        {/* {ResultPop(game as Game, showResult, reset, isLoading)} */}
       </div>
     )
   }

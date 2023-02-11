@@ -5,13 +5,11 @@ import { FaToiletPaper } from 'react-icons/fa'
 import { GiStoneBlock, GiWolverineClaws, GiTRexSkull, GiSpockHand} from 'react-icons/gi'
 import ResultPop from "../resultPop"
 import {play, resetGame, Game, setType} from "../gameHandler"
-import GameInfo from "../gameInfo"
 
 export default function Rpsls() {
 
     const [game, setGame] = useState<Game>()
     const [loading, setLoading] = useState(false)
-    const [showInfo, setShowInfo] = useState(false)
     const [showResult, setShowResult] = useState(false)
 
     function getData(){
@@ -55,11 +53,6 @@ export default function Rpsls() {
             }))
     }
 
-    function handleClickInfo(){
-        setShowInfo(!showInfo)
-        getData()
-    }
-
     useEffect(() => {
         getData()
         setType("rpsls")
@@ -69,10 +62,6 @@ export default function Rpsls() {
         return (
             <div className="max-w-5xl min-h-screen mx-auto flex flex-col justify-center items-center">
                 <h1 className="text-black text-opacity-30 text-6xl font-bold">Loading...</h1>
-                {/* Info bar on the right */}
-                <div className="hidden px-8 w-1/5 h-full top-0 right-0 fixed bg-black bg-opacity-40 xl:flex justify-center items-center z-10">
-                    <div>Loading...</div>
-                </div>
             </div>
         )
     }
@@ -130,35 +119,7 @@ export default function Rpsls() {
             
         </div>
         {/* Result pop up screen */}
-        {ResultPop(game as Game, showResult, reset, loading)}
-        {/* Info bar on the right */}
-        <div className="hidden px-8 w-1/5 h-full top-0 right-0 fixed bg-black bg-opacity-40 xl:flex justify-center items-center z-10">
-          {(!game || loading) && <div>Loading...</div>}
-          {game && GameInfo(game)}
-        </div>
-        <div className='xl:hidden'>
-            <button
-            onClick={handleClickInfo}
-            className={`absolute top-4 right-4 w-8 h-8 rounded-full bg-white ${showInfo ? "hidden": ""}`}
-            >
-            </button>
-            {showInfo &&
-            <div className='fixed top-0 left-0 w-screen h-screen bg-bggradient'>
-                <div className=" px-8 w-full h-full top-0 left-0 fixed bg-black bg-opacity-80 flex justify-center items-center z-10">
-                    <button
-                    onClick={handleClickInfo}
-                    className="absolute top-4 left-4 w-8 h-8 rounded-full bg-white"
-                    ></button>
-                    <div className='w-2/3 flex justify-center items-center'>
-                        <div className="flex-1 flex flex-col justify-center items-center gap-4 ">
-                            {(!game || loading) && <div>Loading...</div>}
-                            {game && GameInfo(game)}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            }
-        </div>
+        {/* {ResultPop(game as Game, showResult, reset, loading)} */}
       </div>
     )
   }
