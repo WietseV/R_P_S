@@ -1,4 +1,5 @@
 'use client'
+
 import { FaToiletPaper } from 'react-icons/fa'
 import { GiStoneBlock, GiWolverineClaws, GiTRexSkull, GiSpockHand } from 'react-icons/gi'
 import { Game } from './gameHandler'
@@ -7,7 +8,7 @@ import  useSWR from "swr"
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
-export default function ResultPop(game: Game, showResult: Boolean, handleClick: Function){
+function ResultPop(game: Game, showResult: Boolean, handleClick: Function, isLoading: Boolean){
 
     // const { data: game } = useSWR<Game>('/api/game', fetcher);
 
@@ -21,7 +22,8 @@ export default function ResultPop(game: Game, showResult: Boolean, handleClick: 
     return (
         <div className={(!showResult) ? "hidden" : "w-screen h-screen top-0 left-0 fixed bg-black bg-opacity-40 flex flex-col justify-center items-center z-10"}>
             <div className={`max-w-6xl rounded-xl p-8 md:px-16 flex flex-col justify-items-center gap-8 border-2 border-black border-opacity-80 ${game.result==="YOU WIN" ? "bg-gold" : "bg-silver"}`}>
-                <div className=" flex flex-col md:flex-row justify-center items-center ">
+                {isLoading && <h1>Loading...</h1>}
+                {!isLoading &&<div className=" flex flex-col md:flex-row justify-center items-center ">
                     <div className="flex-1 mx-4 flex flex-col justify-center items-center">
                         <h1 className="text-lg font-semibold pb-4 text-black">You:</h1>
                         <div className={`result  rounded-full`}>
@@ -63,7 +65,7 @@ export default function ResultPop(game: Game, showResult: Boolean, handleClick: 
                         </div>
                     </div>
                 </div>
-                {/* Result and replay under on small screens */}
+                /* Result and replay under on small screens */}
                 <div className="md:hidden rounded-lg flex flex-col justify-center items-center">
                     <h1 className="pb-4 text-5xl text-black font-bold text-center">{game.result}</h1>
                     <button 
@@ -76,3 +78,5 @@ export default function ResultPop(game: Game, showResult: Boolean, handleClick: 
         </div>
     );
 }
+
+export default ResultPop

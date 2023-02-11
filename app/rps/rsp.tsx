@@ -5,7 +5,7 @@ import { FaToiletPaper } from 'react-icons/fa'
 import { GiStoneBlock, GiWolverineClaws} from 'react-icons/gi'
 import ResultPop from "../resultPop"
 import {play, resetGame, Game} from "../gameHandler"
-import GameInfo from "../gameInfo"
+import GameInfoBar from "./gameInfoBar"
 import  useSWR from "swr"
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
@@ -21,14 +21,13 @@ function getGame(){
     }
 }
 
-export default function Rps() {
+function Rps() {
 
     const { game, isLoading, isError, mutate } = getGame()
 
 
     // const [game, setGame] = useState<Game>()
-    const [loading, setLoading] = useState(false)
-    const [showInfo, setShowInfo] = useState(false)
+    // const [loading, setLoading] = useState(false)
     const [showResult, setShowResult] = useState(false)
 
     // function getData(){
@@ -57,7 +56,7 @@ export default function Rps() {
     function handleClick(choice: string){
         // setLoading(true)
         play(choice)
-        mutate()
+        // mutate()
         // fetch('/api/game', {
         //     method: 'POST',
         //     headers: {
@@ -71,12 +70,8 @@ export default function Rps() {
         //         getData()
         //         setLoading(false)
                 setShowResult(true)
+                mutate()
         //     }))
-    }
-
-    function handleClickInfo(){
-        setShowInfo(!showInfo)
-        // getData()
     }
 
     // useEffect(() => {
@@ -133,9 +128,10 @@ export default function Rps() {
             
         </div>
         {/* Result pop up screen */}
-        {ResultPop(game as Game, showResult, reset)}
+        {ResultPop(game as Game, showResult, reset, isLoading)}
         {/* Info bar on the right */}
-        <div className="hidden px-8 w-1/5 h-full top-0 right-0 fixed bg-black bg-opacity-40 xl:flex justify-center items-center z-10">
+        <GameInfoBar game={game as Game} />
+        {/* <div className="hidden px-8 w-1/5 h-full top-0 right-0 fixed bg-black bg-opacity-40 xl:flex justify-center items-center z-10">
           {(!game || loading) && <div>Loading...</div>}
           {game && GameInfo(game)}
         </div>
@@ -161,8 +157,9 @@ export default function Rps() {
                 </div>
             </div>
             }
-        </div>
+        </div> */}
       </div>
     )
   }
   
+  export default Rps
