@@ -2,7 +2,6 @@
 
 import { FaToiletPaper } from 'react-icons/fa'
 import { GiStoneBlock, GiWolverineClaws, GiTRexSkull, GiSpockHand } from 'react-icons/gi'
-import { useState } from 'react'
 import { Game, resetGame } from './gameHandler'
 import  useSWR from "swr"
 // import { getGame } from './rps/page'
@@ -12,26 +11,23 @@ const fetcher = (url: string) => fetch(url).then(res => res.json())
 function ResultPop(){
 
     const { data: game, isLoading, error, mutate } = useSWR<Game>('/api/game', fetcher);
-    const [showResult, setShowResult] = useState(false)
 
     function handleClick(){
         resetGame()
-        setShowResult(false)
         mutate()
-        
     }
-
-    // if (!game ) return null;
-
-    // const { game, isLoading, isError } = getGame()
-
-    if(isLoading) return <div>Loading...</div>
+    if(isLoading) return (
+        <div className='fixed top-16 left-[50%] -translate-x-[40px]'>
+            <div className="relative animate-spin h-20 w-20 bg-spin rounded-full" >
+            </div>
+        </div>
+    )
     if(error || !game) return <div>Failed to load</div>
 
     return (
         <div className={(game.result === "") ? "hidden" : "w-screen h-screen top-0 left-0 fixed bg-black bg-opacity-40 flex flex-col justify-center items-center z-10"}>
             <div className={`max-w-6xl rounded-xl p-8 md:px-16 flex flex-col justify-items-center gap-8 border-2 border-black border-opacity-80 ${game.result==="YOU WIN" ? "bg-gold" : "bg-silver"}`}>
-                {isLoading && <h1>Loading...</h1>}
+                {isLoading && <h1>Ploop</h1>}
                 {!isLoading &&<div className=" flex flex-col md:flex-row justify-center items-center ">
                     <div className="flex-1 mx-4 flex flex-col justify-center items-center">
                         <h1 className="text-lg font-semibold pb-4 text-black">You:</h1>
@@ -73,8 +69,7 @@ function ResultPop(){
                             }
                         </div>
                     </div>
-                </div>
-                /* Result and replay under on small screens */}
+                </div>}
                 <div className="md:hidden rounded-lg flex flex-col justify-center items-center">
                     <h1 className="pb-4 text-5xl text-black font-bold text-center">{game.result}</h1>
                     <button 

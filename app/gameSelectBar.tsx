@@ -17,7 +17,7 @@ export default function Bar() {
             <div className='xl:hidden'>
                 <button
                 onClick={handleClickGamemode}
-                className={`absolute top-4 left-4 w-8 h-8 rounded-full bg-white ${showGamemode ? "hidden": ""}`}
+                className={`absolute top-4 left-4 w-8 h-8 rounded-full bg-spin ${showGamemode ? "hidden": ""}`}
                 >
                 </button>
                 {showGamemode &&
