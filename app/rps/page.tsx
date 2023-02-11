@@ -11,7 +11,7 @@ import { mutate } from "swr/_internal"
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
-export function getGame(){
+function getGame(){
     const { data, error, isLoading, mutate} = useSWR<Game>('/api/game', fetcher, {refreshInterval: 500})
 
     return {

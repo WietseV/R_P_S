@@ -3,7 +3,7 @@ import { FaToiletPaper } from 'react-icons/fa'
 import { GiStoneBlock, GiWolverineClaws, GiTRexSkull, GiSpockHand } from 'react-icons/gi'
 import { Game } from './gameHandler'
 import  useSWR from "swr"
-import { getGame } from './rps/page'
+// import { getGame } from './rps/page'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
