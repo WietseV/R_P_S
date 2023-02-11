@@ -25,7 +25,6 @@ export default function Rps() {
     }
 
     function reset(){
-        resetGame()
         fetch('/api/game')
             .then((res) => res.json())
             .then((data) => {
