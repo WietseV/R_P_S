@@ -42,13 +42,12 @@ export default function Rps() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({play: true, choice: choice})
-            })
+            }).then(() => fetch('/api/game')
             .then((res) => res.json())
             .then((data) => {
                 setGame(data)
                 setShowResult(true)
-                console.log(data.choice, data.compChoice, data.result, showResult)
-            })
+            }))
     }
 
     function handleClickInfo(){
