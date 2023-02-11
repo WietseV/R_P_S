@@ -18,7 +18,7 @@ export async function getData(){
 export async function play(choice: string) {
 
     try {
-        fetch('http://localhost:3000/api/game', {
+        fetch('/api/game', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ export async function play(choice: string) {
 export async function resetGame() {
 
     try {
-        fetch('http://localhost:3000/api/game', {
+        fetch('/api/game', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ export async function resetGame() {
 export async function setType(type: string){
 
     try {
-        fetch('http://localhost:3000/api/game', {
+        fetch('/api/game', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
