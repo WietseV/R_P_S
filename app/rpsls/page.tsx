@@ -130,7 +130,7 @@ export default function Rpsls() {
             
         </div>
         {/* Result pop up screen */}
-        {ResultPop(game as Game, showResult, reset)}
+        {ResultPop(game as Game, showResult, reset, loading)}
         {/* Info bar on the right */}
         <div className="hidden px-8 w-1/5 h-full top-0 right-0 fixed bg-black bg-opacity-40 xl:flex justify-center items-center z-10">
           {(!game || loading) && <div>Loading...</div>}
