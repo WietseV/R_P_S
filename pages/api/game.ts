@@ -21,7 +21,6 @@ export default function handler(req: NextApiRequest,res: NextApiResponse<Game>) 
       game.setType(req.body.type)
     }if (req.body.play === true) {
       game.play(req.body.choice)
-      console.log(game.result)
     }
   }
   res.status(200).json({ type: game.type, result: game.result, choice: game.choice, compChoice: game.compChoice, wins: game.wins, losses: game.losses, ties: game.ties})

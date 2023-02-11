@@ -25,13 +25,15 @@ export default function RootLayout({children,}: {children: React.ReactNode}) {
         </button>
         {showGamemode &&
         <div>
-          <div className=" px-8 w-full h-full top-0 left-0 fixed bg-black bg-opacity-80 flex justify-center items-center z-10">
-          <button
-          onClick={handleClickGamemode}
-          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white"
-          ></button>
-            <div className='w-2/3'>
-              <GameSelect/>
+          <div className='w-screen h-screen bg-bggradient'>
+            <div className=" px-8 w-full h-full top-0 left-0 fixed bg-black bg-opacity-80 flex justify-center items-center z-10">
+              <button
+              onClick={handleClickGamemode}
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white"
+              ></button>
+              <div className='w-2/3'>
+                <GameSelect/>
+              </div>
             </div>
           </div>
         </div>

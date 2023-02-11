@@ -10,9 +10,9 @@ class Game{
     public static loseresults = {1: "rockpaper", 2: "paperscissors", 3: "scissorsrock", 4: "spockpaper", 5: "rockspock", 6: "scissorsspock", 7: "paperlizard", 8: "spocklizard", 9: "lizardrock", 10: "lizardscissors"}
     public static winresults = {1: "paperrock", 2: "scissorspaper", 3: "rockscissors", 4: "paperspock", 5: "spockrock", 6: "spockscissors", 7: "lizardpaper", 8: "lizardspock", 9: "rocklizard", 10: "scissorslizard"}
     public static tieresults = {1: "paperpaper", 2: "rockrock", 3: "scissorsscissors", 4: "spockspock", 5: "lizardlizard"}
+    public wins
     public losses
     public ties
-    public wins
     public type
 
     private constructor() {
@@ -20,8 +20,8 @@ class Game{
         this.result = ""
         this.choice = ""
         this.compChoice = ""
-        this.losses = 0
         this.wins = 0
+        this.losses = 0
         this.ties = 0
     }
     public static get Instance(){

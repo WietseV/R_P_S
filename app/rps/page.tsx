@@ -25,13 +25,28 @@ export default function Rps() {
 
     function reset(){
         resetGame()
-        getData()
-        setShowResult(false)
+        fetch('/api/game')
+            .then((res) => res.json())
+            .then((data) => {
+                setGame(data)
+                setShowResult(false)
+            })
+        
     }
 
     function handleClick(choice: string){
-        play(choice)
-        getData()
+        fetch('/api/game', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({play: true, choice: choice})
+            }).then(() => fetch('/api/game')
+            .then((res) => res.json())
+            .then((data) => {
+                setGame(data)
+                setShowResult(true)
+            }))
     }
 
     function handleClickInfo(){
@@ -104,19 +119,19 @@ export default function Rps() {
             >
             </button>
             {showInfo &&
-            <div>
-            <div className=" px-8 w-full h-full top-0 left-0 fixed bg-black bg-opacity-80 flex justify-center items-center z-10">
-            <button
-            onClick={handleClickInfo}
-            className="absolute top-4 left-4 w-8 h-8 rounded-full bg-white"
-            ></button>
-                <div className='w-2/3 flex justify-center items-center'>
-                <div className="flex-1 flex flex-col justify-center items-center gap-4 ">
-                    {(!game || loading) && <div>Loading...</div>}
-                    {game && GameInfo(game)}
+            <div className='fixed top-0 left-0 w-screen h-screen bg-bggradient'>
+                <div className=" px-8 w-full h-full top-0 left-0 fixed bg-black bg-opacity-80 flex justify-center items-center z-10">
+                    <button
+                    onClick={handleClickInfo}
+                    className="absolute top-4 left-4 w-8 h-8 rounded-full bg-white"
+                    ></button>
+                    <div className='w-2/3 flex justify-center items-center'>
+                        <div className="flex-1 flex flex-col justify-center items-center gap-4 ">
+                            {(!game || loading) && <div>Loading...</div>}
+                            {game && GameInfo(game)}
+                        </div>
+                    </div>
                 </div>
-                </div>
-            </div>
             </div>
             }
         </div>
