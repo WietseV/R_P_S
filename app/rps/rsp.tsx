@@ -130,7 +130,7 @@ function Rps() {
         {/* Result pop up screen */}
         {ResultPop(game as Game, showResult, reset, isLoading)}
         {/* Info bar on the right */}
-        <GameInfoBar game={game as Game} />
+        <GameInfoBar game={game as Game} isLoading={isLoading} />
         {/* <div className="hidden px-8 w-1/5 h-full top-0 right-0 fixed bg-black bg-opacity-40 xl:flex justify-center items-center z-10">
           {(!game || loading) && <div>Loading...</div>}
           {game && GameInfo(game)}
