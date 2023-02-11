@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Game } from '../gameHandler'
 import GameInfo from '../gameInfo'
 
-export default function Bar( {game}:{game: Game}, {isLoading}:{isLoading: boolean}) {
+export default function Bar(props: {game: Game, isLoading: Boolean}) {
 
 
 
@@ -17,8 +17,8 @@ export default function Bar( {game}:{game: Game}, {isLoading}:{isLoading: boolea
     return (
         <div>
             <div className="hidden px-8 w-1/5 h-full top-0 right-0 fixed bg-black bg-opacity-40 xl:flex justify-center items-center z-10">
-          {(!game || isLoading) && <div>Loading...</div>}
-          {game && GameInfo(game)}
+          {(!props.game || props.isLoading) && <div>Loading...</div>}
+          {props.game && GameInfo(props.game)}
         </div>
         <div className='xl:hidden'>
             <button
@@ -35,8 +35,8 @@ export default function Bar( {game}:{game: Game}, {isLoading}:{isLoading: boolea
                     ></button>
                     <div className='w-2/3 flex justify-center items-center'>
                         <div className="flex-1 flex flex-col justify-center items-center gap-4 ">
-                            {(!game || isLoading) && <div>Loading...</div>}
-                            {game && GameInfo(game)}
+                            {(!props.game || props.isLoading) && <div>Loading...</div>}
+                            {props.game && GameInfo(props.game)}
                         </div>
                     </div>
                 </div>
