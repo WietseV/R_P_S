@@ -42,6 +42,7 @@ export default function Rps() {
             .then((data) => {
                 setGame(data)
                 setShowResult(true)
+                console.log(data.choice, data.compChoice, data.result, showResult)
             })
     }
 
