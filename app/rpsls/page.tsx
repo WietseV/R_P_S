@@ -7,7 +7,7 @@ import ResultPop from "../resultPop"
 import {play, resetGame, Game, setType} from "../gameHandler"
 import GameInfo from "../gameInfo"
 
-export default function Rps() {
+export default function Rpsls() {
 
     const [game, setGame] = useState<Game>()
     const [loading, setLoading] = useState(false)
@@ -26,11 +26,13 @@ export default function Rps() {
 
     function reset(){
         resetGame()
+        setLoading(true)
         fetch('/api/game')
             .then((res) => res.json())
             .then((data) => {
                 setGame(data)
                 setShowResult(false)
+                setLoading(false)
             })
         
     }
@@ -47,6 +49,7 @@ export default function Rps() {
             .then((res) => res.json())
             .then((data) => {
                 setGame(data)
+                getData()
                 setLoading(false)
                 setShowResult(true)
             }))

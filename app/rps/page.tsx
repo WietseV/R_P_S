@@ -25,16 +25,19 @@ export default function Rps() {
 
     function reset(){
         resetGame()
+        setLoading(true)
         fetch('/api/game')
             .then((res) => res.json())
             .then((data) => {
                 setGame(data)
                 setShowResult(false)
+                setLoading(false)
             })
         
     }
 
     function handleClick(choice: string){
+        setLoading(true)
         fetch('/api/game', {
             method: 'POST',
             headers: {
@@ -45,6 +48,8 @@ export default function Rps() {
             .then((res) => res.json())
             .then((data) => {
                 setGame(data)
+                getData()
+                setLoading(false)
                 setShowResult(true)
             }))
     }
