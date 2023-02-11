@@ -29,7 +29,7 @@ export default function ResultPop(game: Game, showResult: Boolean, handleClick: 
                         <h1 className="pb-4 text-4xl text-black font-bold text-center">{game.result}</h1>
                         <button 
                         onClick={() => {handleClick();}}
-                        className={(game.choice=='') ? "hidden" : "w-full py-4 px-8 gradient__orange rounded-lg text-lg font-bold text-white"}>
+                        className="w-full py-4 px-8 gradient__orange rounded-lg text-lg font-bold text-white">
                                 <h1 className="text-xl text-black font-medium">Play again!</h1>
                         </button>
                     </div>
@@ -55,7 +55,7 @@ export default function ResultPop(game: Game, showResult: Boolean, handleClick: 
                     <h1 className="pb-4 text-5xl text-black font-bold text-center">{game.result}</h1>
                     <button 
                     onClick={() => handleClick()}
-                    className={(game.choice=='') ? "hidden" : "py-4 px-8 gradient__orange rounded-lg text-lg font-bold text-white"}>
+                    className="py-4 px-8 gradient__orange rounded-lg text-lg font-bold text-white">
                             <h1 className="text-xl text-black font-medium">Play again!</h1>
                     </button>
                 </div>
