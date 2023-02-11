@@ -21,7 +21,6 @@ export default function Rps() {
             .then((data) => {
                 setGame(data)
                 setLoading(false)
-                console.log('data fetched')
             })
     }
 
