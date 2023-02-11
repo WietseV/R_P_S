@@ -25,6 +25,7 @@ export default function Rps() {
     }
 
     function reset(){
+        resetGame()
         fetch('/api/game')
             .then((res) => res.json())
             .then((data) => {
@@ -35,14 +36,19 @@ export default function Rps() {
     }
 
     function handleClick(choice: string){
-        play(choice).then(() => 
-        fetch('/api/game')
+        fetch('/api/game', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({play: true, choice: choice})
+            })
             .then((res) => res.json())
             .then((data) => {
                 setGame(data)
                 setShowResult(true)
                 console.log(data.choice, data.compChoice, data.result, showResult)
-            }))
+            })
     }
 
     function handleClickInfo(){
