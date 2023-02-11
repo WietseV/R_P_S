@@ -10,7 +10,7 @@ const fetcher = (url: string) => fetch(url).then(res => res.json())
 
 function ResultPop(game: Game, showResult: Boolean, handleClick: Function, isLoading: Boolean){
 
-    // const { data: game } = useSWR<Game>('/api/game', fetcher);
+    // const { data: game, isLoading } = useSWR<Game>('/api/game', fetcher);
 
     // if (!game ) return null;
 

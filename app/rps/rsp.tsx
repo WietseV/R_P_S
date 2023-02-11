@@ -86,9 +86,9 @@ function Rps() {
             <div className="max-w-5xl min-h-screen mx-auto flex flex-col justify-center items-center">
                 <h1 className="text-black text-opacity-30 text-6xl font-bold">Loading...</h1>
                 {/* Info bar on the right */}
-                <div className="hidden px-8 w-1/5 h-full top-0 right-0 fixed bg-black bg-opacity-40 xl:flex justify-center items-center z-10">
+                {/* <div className="hidden px-8 w-1/5 h-full top-0 right-0 fixed bg-black bg-opacity-40 xl:flex justify-center items-center z-10">
                     <div>Loading...</div>
-                </div>
+                </div> */}
             </div>
         )
     }
@@ -130,7 +130,7 @@ function Rps() {
         {/* Result pop up screen */}
         {ResultPop(game as Game, showResult, reset, isLoading)}
         {/* Info bar on the right */}
-        <GameInfoBar game={game as Game} isLoading={isLoading} />
+        {/* <GameInfoBar game={game as Game} isLoading={isLoading} /> */}
       </div>
     )
   }
