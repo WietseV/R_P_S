@@ -35,14 +35,14 @@ export default function Rps() {
     }
 
     function handleClick(choice: string){
-        play(choice)
+        play(choice).then(() => 
         fetch('/api/game')
             .then((res) => res.json())
             .then((data) => {
                 setGame(data)
                 setShowResult(true)
                 console.log(data.choice, data.compChoice, data.result, showResult)
-            })
+            }))
     }
 
     function handleClickInfo(){
