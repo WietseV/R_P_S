@@ -26,14 +26,23 @@ export default function Rps() {
 
     function reset(){
         resetGame()
-        getData()
-        setShowResult(false)
+        fetch('/api/game')
+            .then((res) => res.json())
+            .then((data) => {
+                setGame(data)
+                setShowResult(false)
+            })
+        
     }
 
     function handleClick(choice: string){
         play(choice)
-        getData()
-        setShowResult(true)
+        fetch('/api/game')
+            .then((res) => res.json())
+            .then((data) => {
+                setGame(data)
+                setShowResult(true)
+            })
     }
 
     function handleClickInfo(){
