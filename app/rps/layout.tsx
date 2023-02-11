@@ -1,20 +1,20 @@
-'use client'
+
 
 import GameSelect from '../gameSelect'
 import '../globals.css'
-import { useState } from 'react'
+// import { useState } from 'react'
 
 export default function RootLayout({children,}: {children: React.ReactNode}) {
 
-  const [showGamemode, setShowGamemode] = useState(false)
+  // const [showGamemode, setShowGamemode] = useState(false)
 
-  function handleClickGamemode(){
-    setShowGamemode(!showGamemode)
-  }
+  // function handleClickGamemode(){
+  //   setShowGamemode(!showGamemode)
+  // }
 
   return (
     <div>
-      <div className="hidden px-8 w-1/5 h-full top-0 left-0 fixed bg-black bg-opacity-40 xl:flex justify-center items-center z-10">
+      {/* <div className="hidden px-8 w-1/5 h-full top-0 left-0 fixed bg-black bg-opacity-40 xl:flex justify-center items-center z-10">
         <GameSelect/>
       </div>
       <div className='xl:hidden'>
@@ -38,7 +38,7 @@ export default function RootLayout({children,}: {children: React.ReactNode}) {
           </div>
         </div>
         }
-      </div>
+      </div> */}
       {children}
     </div>
   )
