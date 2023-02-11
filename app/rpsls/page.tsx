@@ -36,6 +36,7 @@ export default function Rps() {
     }
 
     function handleClick(choice: string){
+        setLoading(true)
         fetch('/api/game', {
             method: 'POST',
             headers: {
@@ -46,6 +47,7 @@ export default function Rps() {
             .then((res) => res.json())
             .then((data) => {
                 setGame(data)
+                setLoading(false)
                 setShowResult(true)
             }))
     }
