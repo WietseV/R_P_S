@@ -1,5 +1,6 @@
 import GameSelect from "./gameSelect"
 import { useState } from "react"
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 
 export default function Bar() {
 
@@ -11,22 +12,25 @@ export default function Bar() {
 
     return (
         <div>
-            <div className="hidden px-8 w-1/5 h-full top-0 left-0 fixed bg-black bg-opacity-40 xl:flex justify-center items-center z-10">
+            <div className="hidden px-8 w-1/5 h-full top-0 left-0 absolute bg-black bg-opacity-40 xl:flex justify-center items-center">
                 <GameSelect/>
             </div>
             <div className='xl:hidden'>
                 <button
                 onClick={handleClickGamemode}
-                className={`absolute top-4 left-4 w-8 h-8 rounded-full bg-spin ${showGamemode ? "hidden": ""}`}
+                className={`absolute top-[50%] left-4 ${showGamemode ? "hidden": ""} z-20`}
                 >
+                    <IoIosArrowForward/>
                 </button>
                 {showGamemode &&
-                    <div className='w-screen h-screen bg-bggradient'>
-                        <div className=" px-8 w-full h-full top-0 left-0 fixed bg-black bg-opacity-60 flex justify-center items-center z-10">
+                    <div className='absolute w-screen h-screen bg-bggradient animate-fade-in-left z-20'>
+                        <div className=" px-8 w-full h-full top-0 left-0 fixed bg-black bg-opacity-60 flex justify-center items-center">
                         <button
                         onClick={handleClickGamemode}
-                        className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white"
-                        ></button>
+                        className="absolute top-[50%] left-4 "
+                        >
+                            <IoIosArrowBack />
+                        </button>
                         <div className='w-2/3'>
                             <GameSelect/>
                         </div>

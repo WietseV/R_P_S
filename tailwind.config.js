@@ -25,6 +25,54 @@ module.exports = {
         'split': 'radial-gradient(ellipse farthest-corner at right top, #FFF689 0%, #FFF689 70%, #CFFFB0 70%, #CFFFB0 100%)',
         'bggradient': 'radial-gradient(circle farthest-corner at center, #FFFFFF 0%, #fdba74 50%,  #FF8552 100%)',
         'spin': ' linear-gradient(#00000050 0%, #00000050 33%, #ffffff00 33%, #ffffff00 66%, #00000050 66%, #00000050 100%) '
+      },
+      keyframes: {
+        'fade-in-left': {
+          '0%': { 
+            opacity: '0',
+            transform: 'translateX(-100%)' 
+          },
+          '100%': { 
+            opacity: '1',
+            transform: 'translateX(0%)' 
+          }
+        },
+        'fade-in-right': {
+          '0%': { 
+            opacity: '0',
+            transform: 'translateX(100%)' 
+          },
+          '100%': { 
+            opacity: '1',
+            transform: 'translateX(0%)' 
+          }
+        },
+        'fade-out-left': {
+          '0%': { 
+            opacity: '1',
+            transform: 'translateX(0%)' 
+          },
+          '100%': { 
+            opacity: '0',
+            transform: 'translateX(100%)',
+          }
+        },
+        'fade-out-right': {
+          '0%': { 
+            opacity: '1',
+            transform: 'translateX(0%)' 
+          },
+          '100%': { 
+            opacity: '0',
+            transform: 'translateX(-100%)',
+          }
+        },
+      },
+      animation: {
+        'fade-in-left': 'fade-in-left 0.5s ease-out',
+        'fade-in-right': 'fade-in-right 0.5s ease-out',
+        'fade-out-left': 'fade-out-left 0.5s ease-in',
+        'fade-out-right': 'fade-out-right 0.5s ease-in',
       }
     },
   },
