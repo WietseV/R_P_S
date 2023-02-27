@@ -4,7 +4,7 @@ export default async function GameHandler(){
 
 export async function getData(){
     try {
-        await fetch('/api/game').then((res) => res.json())
+        await fetch('/api/gameServer').then((res) => res.json())
         .then((data) => {
             return data
         }).catch((err) => console.log(err))
@@ -15,9 +15,8 @@ export async function getData(){
 }
 
 export async function play(choice: string) {
-
     try {
-        fetch('/api/game', {
+        fetch('/api/gameServer', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -27,14 +26,11 @@ export async function play(choice: string) {
     } catch (error) {
         console.log("error, couldnt fetch data to play", error)
     }
-
-    
 }
 
 export async function resetGame() {
-
     try {
-        fetch('/api/game', {
+        fetch('/api/gameServer', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -44,14 +40,11 @@ export async function resetGame() {
     } catch (error) {
         console.log("error, couldnt fetch data to reset", error)
     }
-
-    
 }
 
 export async function setType(type: string){
-
     try {
-        fetch('/api/game', {
+        fetch('/api/gameServer', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -68,7 +61,4 @@ export type Game = {
     result: string
     choice: string
     compChoice: string
-    wins: number
-    losses: number
-    ties: number
   }

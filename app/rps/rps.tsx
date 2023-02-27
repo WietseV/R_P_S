@@ -4,18 +4,24 @@ import { useState } from 'react'
 import { FaToiletPaper } from 'react-icons/fa'
 import { GiStoneBlock, GiWolverineClaws} from 'react-icons/gi'
 import { play } from "../gameHandler"
-import ResultPop from '../resultPop'
+import { gameInstance } from '../gameLogic'
+import ResultPop from './resultPop'
 
 function Rps() {
 
     const [result, setResult] = useState(false)
+    const singlePlayer = gameInstance
 
     function handleClickResult(){
         setResult(false)
     }
 
     function handleClick(choice: string){
-        play(choice)
+        if(true) {
+            singlePlayer.play(choice)
+        } else {
+            play(choice)
+        }
         setResult(true)
     }
 
@@ -52,7 +58,7 @@ function Rps() {
                 </button>
             </div>
         </div>
-      <ResultPop show={result} setShow={handleClickResult} />
+      <ResultPop show={result} setShow={handleClickResult} singlePlayer={singlePlayer} />
       </div>
     )
   }

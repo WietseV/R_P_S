@@ -1,17 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import { Game } from './gameHandler'
 import GameInfo from './gameInfo'
-import useSWR from 'swr'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 
 export default function Bar() {
-
-    // if (false) {
-        const fetcher = (url: string) => fetch(url).then(res => res.json())
-        const { data: game, error, isLoading, mutate} = useSWR<Game>('/api/gameServer', fetcher, {refreshInterval: 500})
-    // }
     const [showInfo, setShowInfo] = useState(false)
 
     function handleClickInfo(){
@@ -21,8 +14,7 @@ export default function Bar() {
     return (
         <div>
             <div className="hidden px-8 w-1/5 h-full top-0 right-0 absolute bg-black bg-opacity-40 xl:flex justify-center items-center">
-                {/* {(!game || isLoading) && <div>Loading...</div>} */}
-                {game && GameInfo(game)}
+                <GameInfo />
             </div>
             <div className='xl:hidden'>
                 <button
@@ -42,8 +34,7 @@ export default function Bar() {
                         </button>
                         <div className='w-2/3 flex justify-center items-center'>
                             <div className="flex-1 flex flex-col justify-center items-center gap-4 ">
-                                {/* {(!game || isLoading) && <div>Loading...</div>} */}
-                                {game && GameInfo(game)}
+                                <GameInfo />
                             </div>
                         </div>
                     </div>
