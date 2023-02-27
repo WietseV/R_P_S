@@ -8,15 +8,15 @@ export default function GameInfo(){
                         <div>Rock, Paper, Scissors</div>
                         <div className="w-full p-4 gradient__orange rounded-lg text-xl text-black font-medium flex justify-between">
                             <h1>Wins: </h1>
-                            <h1>{localStorage.getItem("wins")}</h1>
+                            <h1></h1>
                         </div>
                         <div className="w-full p-4 gradient__orange rounded-lg text-xl text-black font-medium flex justify-between">
                             <h1>Losses: </h1>
-                            <h1>{localStorage.getItem("losses")}</h1>
+                            <h1></h1>
                         </div>
                         <div className="w-full p-4 gradient__orange rounded-lg text-xl text-black font-medium flex justify-between">
                             <h1>Ties: </h1>
-                            <h1>{localStorage.getItem("ties")}</h1>
+                            <h1></h1>
                         </div>
                     </div>
                 </div>
