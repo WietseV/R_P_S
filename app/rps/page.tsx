@@ -1,3 +1,5 @@
+'use client'
+
 import Rps from './rps'
 
 export default function RpsPage() {
