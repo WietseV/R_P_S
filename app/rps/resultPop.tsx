@@ -11,29 +11,7 @@ function ResultPop(props: {show: Boolean, setShow: Function, singlePlayer: Game}
     function handleClick(){
         props.setShow(!props.show)
     }
-
-    if (game.result === "YOU WIN") {
-        if (localStorage.getItem("wins") === null) {
-            localStorage.setItem("wins", (0).toString())
-        }else {
-            localStorage.setItem("wins", (parseInt(localStorage.getItem("wins") as string) + 1).toString())
-        }
-    }
-    if (game.result === "YOU LOSE") {
-        if (localStorage.getItem("losses") === null) {
-            localStorage.setItem("losses", (0).toString())
-        }else {
-            localStorage.setItem("losses", (parseInt(localStorage.getItem("losses") as string) + 1).toString())
-        }
-    }
-    if (game.result === "YOU TIE") {
-        if (localStorage.getItem("ties") === null) {
-            localStorage.setItem("ties", (0).toString())
-        }else {
-            localStorage.setItem("ties", (parseInt(localStorage.getItem("ties") as string) + 1).toString())
-        }
-    }
-
+    
     return (
         <div className={!props.show ? "hidden" : "w-screen h-screen top-0 left-0 fixed bg-black bg-opacity-40 flex flex-col justify-center items-center z-10"}>
             <div className={`max-w-6xl rounded-xl p-8 md:px-16 flex flex-col justify-items-center gap-8 border-2 border-black border-opacity-80 ${(game.result==="YOU WIN") ? "bg-gold" : (game.result==="YOU LOSE" || game.result==="YOU TIE") ? "bg-silver" : "bg-stone-700 opacity-90"}`}>

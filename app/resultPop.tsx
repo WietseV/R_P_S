@@ -10,9 +10,10 @@ function ResultPop(props: {show: Boolean, setShow: Function}){
     const { data: game, isLoading, error, mutate } = useSWR<Game>('/api/gameServer', fetcher);
 
     function handleClick(){
-        resetGame()
-        props.setShow(!props.show)
-        mutate()
+        resetGame();
+        (game as Game).result = '';
+        props.setShow(!props.show);
+        mutate();
     }
 
     if(isLoading) return (
