@@ -9,15 +9,15 @@ export default function GameInfo(game: Game){
                         <div>{game.type}</div>
                         <div className="w-full p-4 gradient__orange rounded-lg text-xl text-black font-medium flex justify-between">
                             <h1>Wins: </h1>
-                            <h1>{game.wins}</h1>
+                            <h1>{}</h1>
                         </div>
                         <div className="w-full p-4 gradient__orange rounded-lg text-xl text-black font-medium flex justify-between">
                             <h1>Losses: </h1>
-                            <h1>{game.losses}</h1>
+                            <h1>{}</h1>
                         </div>
                         <div className="w-full p-4 gradient__orange rounded-lg text-xl text-black font-medium flex justify-between">
                             <h1>Ties: </h1>
-                            <h1>{game.ties}</h1>
+                            <h1>{}</h1>
                         </div>
                     </div>
                 </div>
