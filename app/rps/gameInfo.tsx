@@ -1,7 +1,7 @@
 'use client'
 
 export default function GameInfo(){
-    return (
+    if (window) {return (
             <div className="w-full rounded-xl p-8 flex flex-col justify-items-center gap-8 border-2 border-black border-opacity-80">
                 <div className=" flex justify-center items-center">
                     <div className="flex-1 flex flex-col justify-center items-center gap-4 ">
@@ -22,4 +22,7 @@ export default function GameInfo(){
                 </div>
             </div>
     );
+} else {
+    return <div></div>
 }
+} 
