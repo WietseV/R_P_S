@@ -1,3 +1,5 @@
+'use client'
+
 export default function GameInfo(){
     return (
             <div className="w-full rounded-xl p-8 flex flex-col justify-items-center gap-8 border-2 border-black border-opacity-80">
