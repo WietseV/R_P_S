@@ -1,38 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## RPS
 
-## Getting Started
+This project is currently hosted on vercel. If you are interested of checking it out yourself have a look at: [RPS](https://r-p-s-wietsev.vercel.app/)
 
-First, run the development server:
+The goal of this project was originaly just to play around with localStorage, [nextjs 13](https://nextjs.org/blog/next-13), typescript and have a simple application where maybe I could add some nice front-end features.
+This goal was reached very quickly and thus I decided to redefine the scope of the project:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+A web application to play the game Rock, Paper, Scissors. But one is none so I decided to add a second gamemode to play Rock, Paper, Scissors, Lizard, Spock. The games originaly where created a single game called upon and played on client side, only the score being kept alive in localStorage. To future proof the application for future updates I decided to store game logic serverside and to create an api that could keep a gamestate. (This so if and when I would implement multiplayer the game already runs server side and clients only need to display the outputs they get from the server.)
+No longer working with localStorage I needed a good way to communicate between the server and the client. One option would have been to use [React Queries](https://react-query-v3.tanstack.com) but for this project I chose to use [SWR](https://swr.vercel.app/). The harmony of react with nextjs 13 (the app directory instead of the src directory), vercel and swr made things rather comfortable. The basic workings where soon reached as well. Far from being polished the application worked as expected with just 1 drawback: UX.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Sadly with the serverpolling and the api not being very fast working it took quite a while before getting the results of the game. The importance of UX and the utility of server/client communication was something that I didn't think I would stumble upon when I first started the project but it soon became the main hurdle for this application. SWR was a nice upgrade from just fetching normaly with react hooks to update but in the end it had the same drawbacks.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+In the end I decided to keep the project in stasis between the 2 (for me atleast) obvious options:
+- The RPS game will just create a game client side and play it out so the results are immediatly available. The score is kept in the api and updates a bit slower but automatic nevertheless.
+- The RPSLS game will play the game that is running server side and get both results and score from the server. This so I keep the progress that I made concerning loading states. (though they are not desired it is nice to have loading templates just in case of slow connections)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+The goal for the future would be to develop the multiplayer mode and use maybe React Queries to optimize the UX.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Front-end wise I did make some advancements in transforming with css, animations and gradients.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The icons are from [react-icons](https://react-icons.github.io/react-icons/). The favicon was created using [favicon](https://favicon.io). 
 
-## Learn More
+For the homepage, simplicity is the name of the game.
+![image](https://user-images.githubusercontent.com/36664208/221931396-a25bb7fb-6319-480c-b349-1698ed7c6075.png)
 
-To learn more about Next.js, take a look at the following resources:
+The RPS game and RPSLS pages have mostly the same components with the difference in the game being played being the biggest. With pictures the animations are rather difficult to portray here so do have a look if you are interested. When hovering over the possible choices the icon changes into a word, when hovering over the score reset button it rotates 90deg, on smaller screens both the gamemode selection bar on the left as well as the game info bar on the right slide into view by the click of a button.
+![image](https://user-images.githubusercontent.com/36664208/221931514-18c984ef-14fa-47ef-adfe-11f2d275bc09.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![image](https://user-images.githubusercontent.com/36664208/221931579-8a0a4904-8093-4904-8bab-4820efb6b92f.png)
 
-## Deploy on Vercel
+The result pop-up looks different based on the state and the outcome. When loading the result there will be a skeleton loader. If you win the background is gold, in case of a lose or a tie I kept it civilized and you still get silver.
+![image](https://user-images.githubusercontent.com/36664208/221931634-69e519b5-9617-45c7-a95d-4c71f801c85b.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The rules for both games are available on the bottom rightside, or in the rightside menu on smaller screens. Maybe a bit overkill since the rules for rock, paper, scissors are quite easy but for the RPSLS mode I found it handy nevertheless.
+![image](https://user-images.githubusercontent.com/36664208/221931758-218ba2c8-778b-463b-b5f1-f8a1f06fa417.png)
