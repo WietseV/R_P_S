@@ -13,11 +13,12 @@ type Game = {
   l: number
   t: number
 } 
-
+//for rpsls gamemode
 var games = 0
 var wins = 0
 var ties = 0
 var losses = 0
+//for rps gamemode
 var w = 0
 var t = 0
 var l = 0

@@ -3,8 +3,16 @@
 @tailwind utilities;
 
 
+.option:hover :first-child {
+    opacity: 0;
+}
+
+.option:hover p {
+    opacity: 1;
+}
+
 .option {
-    @apply  w-32 h-32 md:w-48 md:h-48  flex justify-center items-center text-black hover:text-opacity-70 p-2
+    @apply  w-32 h-32 md:w-48 md:h-48  flex justify-center items-center text-black  p-2
 }
 
 .result {
@@ -24,7 +32,7 @@
 }
 
 .icon {
-    @apply text-[75px] md:text-[100px] 
+    @apply text-[75px] md:text-[100px] hover:hidden
 }
 
 .text__border {

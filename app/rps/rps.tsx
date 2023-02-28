@@ -31,29 +31,30 @@ function Rps() {
             <h2>Rock</h2><h2>Paper</h2><h2>Scissors</h2>
           </div>
         {/* Pick options */}
-        <div className="flex justify-center items-center overflow-hidden">
+        <div className="flex justify-center items-center overflow-x-hidden">
             <div className="relative w-96 h-96 md:w-[600px] md:h-[600px] flex justify-center rounded-full items-center">
                 <button
-                id="rock"
                 onClick={() => handleClick("rock")}
                 className="absolute left-0 rotate-30 origin-[192px] md:origin-[300px]">
-                    <div className="option rotate-330 ">
+                    <div id='option' className="option rotate-330 ">
                         <GiStoneBlock className="icon"/>
+                        <p className='absolute opacity-0 text-xl font-semibold'>Rock</p>
                     </div>
                 </button>
                 <button 
-                id="paper"
                 onClick={() => handleClick("paper")}
                 className="absolute left-0 rotate-150 origin-[192px] md:origin-[300px]">
-                    <div className="option rotate-210 ">
+                    <div id='option' className="option rotate-210 ">
                         <FaToiletPaper className="icon"/>
+                        <p className='absolute opacity-0 text-xl font-semibold'>Paper</p>
                     </div>
                 </button>
                 <button 
                 onClick={() => handleClick("scissors")}
                 className="absolute left-0 rotate-270 origin-[192px] md:origin-[300px]">
-                    <div className="option rotate-90 ">
+                    <div id='option' className="option rotate-90 relative">
                         <GiWolverineClaws className="icon"/>
+                        <p className='absolute opacity-0 text-xl font-semibold'>Scissors</p>
                     </div>
                 </button>
             </div>

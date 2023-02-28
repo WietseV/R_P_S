@@ -18,7 +18,7 @@ export default function Bar() {
             <div className='xl:hidden'>
                 <button
                 onClick={handleClickGamemode}
-                className={`absolute top-[50%] left-4 ${showGamemode ? "hidden": ""} z-20 p-4 pr-2`}
+                className={`absolute bottom-4 left-4 ${showGamemode ? "hidden": ""} z-20 p-4 pr-2`}
                 >
                     <IoIosArrowForward/>
                 </button>
@@ -26,11 +26,11 @@ export default function Bar() {
                         <div className=" px-8 w-full h-full top-0 left-0 fixed bg-black bg-opacity-60 flex justify-center items-center">
                         <button
                         onClick={handleClickGamemode}
-                        className="absolute top-[50%] left-4 p-4 pr-2"
+                        className="absolute bottom-4 left-4 p-4 pr-2"
                         >
                             <IoIosArrowBack />
                         </button>
-                        <div className='w-2/3'>
+                        <div className='w-full'>
                             <GameSelect/>
                         </div>
                     </div>

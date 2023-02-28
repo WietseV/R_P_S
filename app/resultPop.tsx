@@ -16,13 +16,6 @@ function ResultPop(props: {show: Boolean, setShow: Function}){
         mutate();
     }
 
-    // if(isLoading) return (
-        // <div className='fixed top-16 left-[50%] -translate-x-[40px]'>
-        //     <div className="relative animate-spin h-20 w-20 bg-spin rounded-full" />
-        //     <h1 className='text-center text-xl font-bold opacity-40'>Loading...</h1>
-        // </div>
-    // )
-
     if(error || !game) return <div></div>
 
     return (

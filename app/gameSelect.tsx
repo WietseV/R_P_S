@@ -19,12 +19,12 @@ export default function GameSelect(){
                         <button 
                         onClick={() => {handleClick("rps")}}
                         className="w-full p-4 gradient__orange rounded-lg">
-                            <h1 className="text-xl text-black font-medium">R P S</h1>
+                            <h1 className="text-base md:text-xl text-black font-medium">R P S</h1>
                         </button>
                         <button 
                         onClick={() => {handleClick("rpsls")}}
                         className="w-full p-4 gradient__orange rounded-lg">
-                            <h1 className="text-xl text-black font-medium">R P S L S</h1>
+                            <h1 className="text-base md:text-xl text-black font-medium">R P S L S</h1>
                         </button>
                     </div>
                 </div>

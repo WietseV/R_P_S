@@ -33,43 +33,43 @@ function Rpsls() {
         <div className="flex justify-center items-center overflow-hidden">
             <div className="relative w-96 h-96 md:w-[600px] md:h-[600px] flex justify-center rounded-full items-center">
                 <button
-                id="rock"
                 onClick={() => handleClick("rock")}
                 className="absolute left-0 rotate-[18deg] origin-[192px] md:origin-[300px]">
-                    <div className="option rotate-[345deg]">
-                        <h1><GiStoneBlock className="icon"/></h1>
+                    <div id="option" className="option rotate-[342deg]">
+                        <GiStoneBlock className="icon"/>
+                        <p className='absolute opacity-0 text-xl font-semibold'>Rock</p>
                     </div>
                 </button>
                 <button
-                id="paper" 
                 onClick={() => handleClick("paper")}
                 className="absolute left-0 rotate-[90deg] origin-[192px] md:origin-[300px]">
-                    <div className="option  rotate-270">
+                    <div id="option" className="option  rotate-270">
                         <FaToiletPaper className="icon"/>
+                        <p className='absolute opacity-0 text-xl font-semibold'>Paper</p>
                     </div>
                 </button>
                 <button
-                id="scissors" 
                 onClick={() => handleClick("scissors")}
                 className="absolute left-0 rotate-[162deg] origin-[192px] md:origin-[300px]">
-                    <div className="option rotate-210">
+                    <div id="option" className="option rotate-[198deg]">
                         <GiWolverineClaws className="icon"/>
+                        <p className='absolute opacity-0 text-xl font-semibold'>Scissors</p>
                     </div>
                 </button>
                 <button
-                id="lizard" 
                 onClick={() => handleClick("lizard")}
                 className="absolute left-0 rotate-[234deg] origin-[192px] md:origin-[300px]">
-                    <div className="option rotate-90">
+                    <div id="option" className="option rotate-[126deg]">
                         <GiTRexSkull className="icon"/>
+                        <p className='absolute opacity-0 text-xl font-semibold'>Lizard</p>
                     </div>
                 </button>
                 <button
-                id="spock" 
                 onClick={() => handleClick("spock")}
                 className="absolute left-0 rotate-[306deg] origin-[192px] md:origin-[300px]">
-                    <div className="option rotate-90">
+                    <div id="option" className="option rotate-[54deg]">
                         <GiSpockHand className="icon"/>
+                        <p className='absolute opacity-0 text-xl font-semibold'>Spock</p>
                     </div>
                 </button>
             </div>
