@@ -21,21 +21,26 @@ Front-end wise I did make some advancements in transforming with css, animations
 The icons are from [react-icons](https://react-icons.github.io/react-icons/). The favicon was created using [favicon](https://favicon.io). 
 
 For the homepage, simplicity is the name of the game.
+
 ![image](https://user-images.githubusercontent.com/36664208/221931396-a25bb7fb-6319-480c-b349-1698ed7c6075.png)
 
 The RPS game and RPSLS pages have mostly the same components with the difference in the game being played being the biggest. With pictures the animations are rather difficult to portray here so do have a look if you are interested. When hovering over the possible choices the icon changes into a word, when hovering over the score reset button it rotates 90deg, on smaller screens both the gamemode selection bar on the left as well as the game info bar on the right slide into view by the click of a button.
+
 ![image](https://user-images.githubusercontent.com/36664208/221931514-18c984ef-14fa-47ef-adfe-11f2d275bc09.png)
 
 
 ![image](https://user-images.githubusercontent.com/36664208/221931579-8a0a4904-8093-4904-8bab-4820efb6b92f.png)
 
 The result pop-up looks different based on the state and the outcome. When loading the result there will be a skeleton loader. If you win the background is gold, in case of a lose or a tie I kept it civilized and you still get silver.
+
 ![image](https://user-images.githubusercontent.com/36664208/221931758-218ba2c8-778b-463b-b5f1-f8a1f06fa417.png)
 
 The rules for both games are available on the bottom rightside, or in the rightside menu on smaller screens. Maybe a bit overkill since the rules for rock, paper, scissors are quite easy but for the RPSLS mode I found it handy nevertheless.
+
 ![image](https://user-images.githubusercontent.com/36664208/221931634-69e519b5-9617-45c7-a95d-4c71f801c85b.png)
 
 On tablet size screens this is how the game info bar looks like extended:
+
 ![image](https://user-images.githubusercontent.com/36664208/221953463-3fcf6819-8278-411b-b602-6dfb47e9284d.png)
 
 And this is what the app looks like on mobile without the bars extended:
