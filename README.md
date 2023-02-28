@@ -34,3 +34,10 @@ The result pop-up looks different based on the state and the outcome. When loadi
 
 The rules for both games are available on the bottom rightside, or in the rightside menu on smaller screens. Maybe a bit overkill since the rules for rock, paper, scissors are quite easy but for the RPSLS mode I found it handy nevertheless.
 ![image](https://user-images.githubusercontent.com/36664208/221931634-69e519b5-9617-45c7-a95d-4c71f801c85b.png)
+
+On tablet size screens this is how the game info bar looks like extended:
+![image](https://user-images.githubusercontent.com/36664208/221953463-3fcf6819-8278-411b-b602-6dfb47e9284d.png)
+
+And this is what the app looks like on mobile without the bars extended:
+![image](https://user-images.githubusercontent.com/36664208/221953650-5a4d3cf2-b794-49e8-8cd8-72d33a6f7705.png)
+
