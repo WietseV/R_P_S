@@ -47,7 +47,7 @@ export default function GameInfoBar(props: {type: string}) {
             <div className='xl:hidden'>
                 <button
                 onClick={handleClickInfo}
-                className={`absolute top-4 right-4 ${showInfo ? "hidden": ""} z-10 p-4 pr-2`}
+                className={`absolute top-8 right-8 ${showInfo ? "hidden": ""} z-10 p-4 border-2 border-dotted rounded-full border-black transition hover:-translate-x-2`}
                 >
                     <IoIosArrowBack/>
                 </button>
@@ -55,7 +55,7 @@ export default function GameInfoBar(props: {type: string}) {
                     <div className=" px-8 w-full h-full top-0 left-0 fixed bg-black bg-opacity-60 flex justify-center items-center">
                         <button
                         onClick={handleClickInfo}
-                        className="absolute top-4 right-4 p-4 pr-2"
+                        className="absolute top-8 right-8 p-4 border-2 border-dotted rounded-full border-black transition hover:translate-x-2"
                         >
                             <IoIosArrowForward />
                         </button>
