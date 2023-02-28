@@ -39,5 +39,8 @@ On tablet size screens this is how the game info bar looks like extended:
 ![image](https://user-images.githubusercontent.com/36664208/221953463-3fcf6819-8278-411b-b602-6dfb47e9284d.png)
 
 And this is what the app looks like on mobile without the bars extended:
+
 ![image](https://user-images.githubusercontent.com/36664208/221953650-5a4d3cf2-b794-49e8-8cd8-72d33a6f7705.png)
+![image](https://user-images.githubusercontent.com/36664208/221953827-82f2ef6c-9525-4e3d-95df-ab501c351589.png)
+
 
