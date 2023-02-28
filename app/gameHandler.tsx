@@ -1,3 +1,5 @@
+import { NumberLiteralType } from "typescript"
+
 export default async function GameHandler(){
     return getData()
 }
@@ -25,6 +27,34 @@ export async function play(choice: string) {
         }).catch((err) => console.log(err))
     } catch (error) {
         console.log("error, couldnt fetch data to play", error)
+    }
+}
+
+export async function score(result: string) {
+    try {
+        fetch('/api/gameServer', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({score: true, result: result})
+        }).catch((err) => console.log(err))
+    } catch (error) {
+        console.log("error, couldnt fetch data to reset", error)
+    }
+}
+
+export async function resetScore() {
+    try {
+        fetch('/api/gameServer', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({resetScore: true})
+        }).catch((err) => console.log(err))
+    } catch (error) {
+        console.log("error, couldnt fetch data to reset", error)
     }
 }
 
@@ -61,4 +91,17 @@ export type Game = {
     result: string
     choice: string
     compChoice: string
+    wins: number
+    losses: number
+    ties: number
+    w: number
+    l: number
+    t: number
   }
+
+  export type singleGame = {
+    type: string
+    result: string
+    choice: string
+    compChoice: string
+  } 

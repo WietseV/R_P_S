@@ -29,50 +29,42 @@ module.exports = {
       keyframes: {
         'fade-in-left': {
           '0%': { 
-            opacity: '0',
             transform: 'translateX(-100%)' 
           },
           '100%': { 
-            opacity: '1',
             transform: 'translateX(0%)' 
           }
         },
         'fade-in-right': {
           '0%': { 
-            opacity: '0',
             transform: 'translateX(100%)' 
           },
           '100%': { 
-            opacity: '1',
             transform: 'translateX(0%)' 
           }
         },
         'fade-out-left': {
           '0%': { 
-            opacity: '1',
             transform: 'translateX(0%)' 
           },
           '100%': { 
-            opacity: '0',
             transform: 'translateX(100%)',
           }
         },
         'fade-out-right': {
           '0%': { 
-            opacity: '1',
             transform: 'translateX(0%)' 
           },
           '100%': { 
-            opacity: '0',
             transform: 'translateX(-100%)',
           }
         },
       },
       animation: {
-        'fade-in-left': 'fade-in-left 0.5s ease-out',
-        'fade-in-right': 'fade-in-right 0.5s ease-out',
-        'fade-out-left': 'fade-out-left 0.5s ease-in',
-        'fade-out-right': 'fade-out-right 0.5s ease-in',
+        'fade-in-left': 'fade-in-left 0.5s ease-in-out',
+        'fade-in-right': 'fade-in-right 0.5s ease-in-out',
+        'fade-out-left': 'fade-out-left 0.5s ease-in-out',
+        'fade-out-right': 'fade-out-right 0.5s ease-in-out',
       }
     },
   },

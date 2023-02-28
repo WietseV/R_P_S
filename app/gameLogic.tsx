@@ -1,6 +1,4 @@
 class Game{
-
-    private static _instance: Game;
     public result
     public choice
     public compChoice
@@ -10,22 +8,13 @@ class Game{
     public static loseresults = {1: "rockpaper", 2: "paperscissors", 3: "scissorsrock", 4: "spockpaper", 5: "rockspock", 6: "scissorsspock", 7: "paperlizard", 8: "spocklizard", 9: "lizardrock", 10: "lizardscissors"}
     public static winresults = {1: "paperrock", 2: "scissorspaper", 3: "rockscissors", 4: "paperspock", 5: "spockrock", 6: "spockscissors", 7: "lizardpaper", 8: "lizardspock", 9: "rocklizard", 10: "scissorslizard"}
     public static tieresults = {1: "paperpaper", 2: "rockrock", 3: "scissorsscissors", 4: "spockspock", 5: "lizardlizard"}
-    // public wins
-    // public losses
-    // public ties
     public type
 
-    private constructor() {
+    public constructor() {
         this.type = "rps"
         this.result = ""
         this.choice = ""
         this.compChoice = ""
-        // this.wins = 0
-        // this.losses = 0
-        // this.ties = 0
-    }
-    public static get Instance(){
-        return this._instance || (this._instance = new this())
     }
     
     public play(value: string) {
@@ -90,18 +79,6 @@ class Game{
         return this.result
     }
 
-    // public setWins(){
-    //     this.wins = this.wins + 1
-    // }
-
-    // public setLosses(){
-    //     this.losses = this.losses + 1
-    // }
-
-    // public setTies(){
-    //     this.ties = this.ties + 1
-    // }
-
     public reset(){
         this.setChoice('')
         this.setCompChoice('')
@@ -110,5 +87,5 @@ class Game{
 
 }
 
-export const gameInstance = Game.Instance
+export const gameInstance = new Game
 

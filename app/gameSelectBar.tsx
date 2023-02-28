@@ -18,16 +18,15 @@ export default function Bar() {
             <div className='xl:hidden'>
                 <button
                 onClick={handleClickGamemode}
-                className={`absolute top-[50%] left-4 ${showGamemode ? "hidden": ""} z-20`}
+                className={`absolute top-[50%] left-4 ${showGamemode ? "hidden": ""} z-20 p-4 pr-2`}
                 >
                     <IoIosArrowForward/>
                 </button>
-                {showGamemode &&
-                    <div className='absolute w-screen h-screen bg-bggradient animate-fade-in-left z-20'>
+                    <div className={`absolute w-screen h-screen bg-bggradient ${showGamemode ? "animate-fade-in-left " : "animate-fade-out-right -translate-x-full"} z-20`}>
                         <div className=" px-8 w-full h-full top-0 left-0 fixed bg-black bg-opacity-60 flex justify-center items-center">
                         <button
                         onClick={handleClickGamemode}
-                        className="absolute top-[50%] left-4 "
+                        className="absolute top-[50%] left-4 p-4 pr-2"
                         >
                             <IoIosArrowBack />
                         </button>
@@ -36,7 +35,7 @@ export default function Bar() {
                         </div>
                     </div>
                 </div>
-                }
+                
             </div>
         </div>
     )

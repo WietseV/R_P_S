@@ -9,7 +9,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <div>
       <GameSelectBar />
-      <GameInfoBar />
+      <GameInfoBar type='rps' />
       {children}
     </div>
   )

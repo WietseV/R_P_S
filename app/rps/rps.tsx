@@ -3,27 +3,27 @@
 import { useState } from 'react'
 import { FaToiletPaper } from 'react-icons/fa'
 import { GiStoneBlock, GiWolverineClaws} from 'react-icons/gi'
-import { play } from "../gameHandler"
+import { score } from '../gameHandler'
 import { gameInstance } from '../gameLogic'
 import ResultPop from './resultPop'
+
 
 function Rps() {
 
     const [result, setResult] = useState(false)
     const singlePlayer = gameInstance
+    singlePlayer.setType("rps")
 
     function handleClickResult(){
         setResult(false)
     }
 
     function handleClick(choice: string){
-        if(true) {
-            singlePlayer.play(choice)
-        } else {
-            play(choice)
-        }
+        singlePlayer.play(choice)
+        score(singlePlayer.result)
         setResult(true)
     }
+    
 
     return (
       <div className="max-w-5xl min-h-screen mx-auto flex flex-col justify-center items-center">

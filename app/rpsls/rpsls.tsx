@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { FaToiletPaper } from 'react-icons/fa'
 import { GiStoneBlock, GiWolverineClaws, GiTRexSkull, GiSpockHand} from 'react-icons/gi'
-import { play } from "../gameHandler"
+import { play, setType } from "../gameHandler"
 import ResultPop from "../resultPop"
 
 function Rpsls() {
@@ -18,6 +18,10 @@ function Rpsls() {
         play(choice)
         setResult(true)
     }
+
+    useEffect(() => {
+        setType('rpsls')
+    }, [])
 
 
     return (

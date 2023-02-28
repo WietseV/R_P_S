@@ -10,18 +10,18 @@ function ResultPop(props: {show: Boolean, setShow: Function}){
     const { data: game, isLoading, error, mutate } = useSWR<Game>('/api/gameServer', fetcher);
 
     function handleClick(){
-        resetGame();
         (game as Game).result = '';
+        resetGame();
         props.setShow(!props.show);
         mutate();
     }
 
-    if(isLoading) return (
-        <div className='fixed top-16 left-[50%] -translate-x-[40px]'>
-            <div className="relative animate-spin h-20 w-20 bg-spin rounded-full" />
-            <h1 className='text-center text-xl font-bold opacity-40'>Loading...</h1>
-        </div>
-    )
+    // if(isLoading) return (
+        // <div className='fixed top-16 left-[50%] -translate-x-[40px]'>
+        //     <div className="relative animate-spin h-20 w-20 bg-spin rounded-full" />
+        //     <h1 className='text-center text-xl font-bold opacity-40'>Loading...</h1>
+        // </div>
+    // )
 
     if(error || !game) return <div></div>
 
@@ -52,8 +52,8 @@ function ResultPop(props: {show: Boolean, setShow: Function}){
                     </div>
                 </div>}
                 {(game.result !== "") && 
-                <div>
-                    <div className=" flex flex-col md:flex-row justify-center items-center ">
+                <div className=''>
+                    <div className=" flex flex-col md:flex-row justify-center items-center gap-4">
                         <div className="flex-1 mx-4 flex flex-col justify-center items-center">
                             <h1 className="text-lg font-semibold pb-4 text-black">You:</h1>
                             <div className="result">
@@ -95,7 +95,7 @@ function ResultPop(props: {show: Boolean, setShow: Function}){
                             </div>
                         </div>
                     </div>
-                    <div className="md:hidden rounded-lg flex flex-col justify-center items-center">
+                    <div className="md:hidden rounded-lg flex flex-col justify-center items-center pt-4">
                         <h1 className="pb-4 text-5xl text-black font-bold text-center">{game.result}</h1>
                         <button 
                         onClick={() => handleClick()}

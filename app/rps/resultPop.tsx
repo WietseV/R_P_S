@@ -2,9 +2,9 @@
 
 import { FaToiletPaper } from 'react-icons/fa'
 import { GiStoneBlock, GiWolverineClaws, GiTRexSkull, GiSpockHand } from 'react-icons/gi'
-import { Game } from '../gameHandler'
+import { singleGame } from '../gameHandler'
 
-function ResultPop(props: {show: Boolean, setShow: Function, singlePlayer: Game}){
+function ResultPop(props: {show: Boolean, setShow: Function, singlePlayer: singleGame}){
     
     const game = props.singlePlayer
 
@@ -18,7 +18,7 @@ function ResultPop(props: {show: Boolean, setShow: Function, singlePlayer: Game}
                 
                 {(game.result !== "") && 
                 <div>
-                    <div className=" flex flex-col md:flex-row justify-center items-center ">
+                    <div className=" flex flex-col md:flex-row justify-center items-center gap-4">
                         <div className="flex-1 mx-4 flex flex-col justify-center items-center">
                             <h1 className="text-lg font-semibold pb-4 text-black">You:</h1>
                             <div className="result">
@@ -60,7 +60,7 @@ function ResultPop(props: {show: Boolean, setShow: Function, singlePlayer: Game}
                             </div>
                         </div>
                     </div>
-                    <div className="md:hidden rounded-lg flex flex-col justify-center items-center">
+                    <div className="md:hidden rounded-lg flex flex-col justify-center items-center pt-4">
                         <h1 className="pb-4 text-5xl text-black font-bold text-center">{game.result}</h1>
                         <button 
                         onClick={() => handleClick()}
