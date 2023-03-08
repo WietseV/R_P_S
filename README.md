@@ -1,5 +1,7 @@
 ## RPS
 
+![image](https://user-images.githubusercontent.com/36664208/221931396-a25bb7fb-6319-480c-b349-1698ed7c6075.png)
+
 This project is currently hosted on vercel. If you are interested of checking it out yourself have a look at: [RPS](https://r-p-s-wietsev.vercel.app/)
 
 The goal of this project was originaly just to play around with localStorage, [nextjs 13](https://nextjs.org/blog/next-13), typescript and have a simple application where maybe I could add some nice front-end features.
@@ -19,10 +21,6 @@ The goal for the future would be to develop the multiplayer mode and use maybe R
 Front-end wise I did make some advancements in transforming with css, animations and gradients.
 
 The icons are from [react-icons](https://react-icons.github.io/react-icons/). The favicon was created using [favicon](https://favicon.io). 
-
-For the homepage, simplicity is the name of the game.
-
-![image](https://user-images.githubusercontent.com/36664208/221931396-a25bb7fb-6319-480c-b349-1698ed7c6075.png)
 
 The RPS game and RPSLS pages have mostly the same components with the difference in the game being played being the biggest. With pictures the animations are rather difficult to portray here so do have a look if you are interested. When hovering over the possible choices the icon changes into a word, when hovering over the score reset button it rotates 90deg, on smaller screens both the gamemode selection bar on the left as well as the game info bar on the right slide into view by the click of a button.
 
